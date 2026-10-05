@@ -1,29 +1,29 @@
-Vochito Envíos y Ventas
-\*Proyecto web para la plataformaenfocado en la promoción de productos locales, servicios de envío y artesanos regionales.
+# 🚗 Bochito
 
-Tecnologías Utilizadas
-*HTML Estructura semántica.
-*CSS: Estilos personalizados e integración de paleta de colores corporativa.
-*Bootstrap 5: Maquetación responsiva y componentes interactivos.
-*Bootstrap Icons: Iconografía vectorial para la interfaz.
-\*JavaScript: Interactividad básica y validaciones.
+**Proyecto de Aplicaciones Web**
 
-Componentes de Bootstrap Integrados
-*Navbar: Navegación responsiva y adaptada con el logotipo de la marca.
-*Carousel: Destacado visual en la sección de servicios.
-*Cards: Catálogo visual para la presentación de servicios principales.
-*Accordion: Sección de Preguntas Frecuentes (FAQ).
-*Modal: Ventana emergente con detalles adicionales sobre los servicios.
-*Formulario de Contacto: Formulario validado para la captura de datos de clientes/artesanos.
+## Descripción del proyecto
 
-Estructura del Proyecto
-Vochito_Envios_y_Ventas/
-├── css/
-│ └── estilos.css
-├── img/
-│ └── logo.png
-├── js/
-│ └── main.js
-├── contacto.html
-├── servicios.html
-└── README.md
+Bochito es una aplicación web desarrollada como parte de la asignatura de Aplicaciones Web. Su propósito y sus funcionalidades se describen en los apartados de este documento, de acuerdo con los requisitos establecidos para el proyecto.
+
+## Objetivo
+
+Desarrollar una aplicación web que cumpla con los requerimientos funcionales y no funcionales definidos para el proyecto, aplicando tecnologías de desarrollo web y buenas prácticas de organización, diseño, programación y trabajo colaborativo.
+
+## Integrantes del equipo
+
+* **Líder del proyecto:** Vital Millan Dayra Naomi
+* **Backend:** Guerrero López Miguel Angel
+* **Frontend 1:** Carpio Campos Rodrigo
+* **Frontend 2:** Ortiz Salguero Geazul Guadalupe
+* **Analista:** Lorenzana Hernández Aarón Dahir
+
+## Herramientas de desarrollo
+
+* Visual Studio Code.
+* GitHub.
+* HTML, CSS, JavaScript y Bootstrap, según las tecnologías implementadas.
+
+## Estado del proyecto
+
+En desarrollo.
