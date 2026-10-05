@@ -12,32 +12,33 @@ Desarrollar una aplicación web que cumpla con los requerimientos funcionales y 
 
 ## Integrantes del equipo
 
-* **Líder del proyecto:** Vital Millan Dayra Naomi
-* **Backend:** Guerrero López Miguel Angel
-* **Frontend 1:** Carpio Campos Rodrigo
-* **Frontend 2:** Ortiz Salguero Geazul Guadalupe
-* **Analista:** Lorenzana Hernández Aarón Dahir
+- **Líder del proyecto:** Vital Millan Dayra Naomi
+- **Backend:** Guerrero López Miguel Angel
+- **Frontend 1:** Carpio Campos Rodrigo
+- **Frontend 2:** Ortiz Salguero Geazul Guadalupe
+- **Analista:** Lorenzana Hernández Aarón Dahir
 
 ## Herramientas de desarrollo
 
-* Visual Studio Code.
-* GitHub.
-* HTML, CSS, JavaScript y Bootstrap, según las tecnologías implementadas.
+- Visual Studio Code.
+- GitHub.
+- HTML, CSS, JavaScript y Bootstrap, según las tecnologías implementadas.
 
 ## Estado del proyecto
 
 En desarrollo.
+
 ## Componentes de Bootstrap utilizados
 
 En el proyecto se utilizaron diferentes componentes de Bootstrap para facilitar el diseño y la organización de la página web. Entre ellos se encuentran:
 
-* **Navbar:** utilizado para crear el menú de navegación.
-* **Container:** utilizado para organizar y centrar el contenido.
-* **Grid:** utilizado para distribuir los elementos de la página en filas y columnas.
-* **Cards:** utilizadas para presentar información de productos o servicios.
-* **Buttons:** utilizados para crear botones interactivos.
-* **Forms:** utilizados para crear formularios de contacto y captura de información.
-* **Responsive utilities:** utilizadas para adaptar el contenido a diferentes tamaños de pantalla.
+- **Navbar:** utilizado para crear el menú de navegación.
+- **Container:** utilizado para organizar y centrar el contenido.
+- **Grid:** utilizado para distribuir los elementos de la página en filas y columnas.
+- **Cards:** utilizadas para presentar información de productos o servicios.
+- **Buttons:** utilizados para crear botones interactivos.
+- **Forms:** utilizados para crear formularios de contacto y captura de información.
+- **Responsive utilities:** utilizadas para adaptar el contenido a diferentes tamaños de pantalla.
 
 ## Estructura del proyecto
 
@@ -83,3 +84,24 @@ Para visualizar el proyecto se deben seguir los siguientes pasos:
 
 El proyecto no requiere una instalación adicional de programas para visualizar las páginas, ya que está desarrollado con HTML, CSS, JavaScript y Bootstrap.
 
+## Capturas de pantalla
+
+## Imágenes del proyecto
+
+![Imagen 1](img/F1.jpeg)
+
+![Imagen 2](img/F2.jpeg)
+
+![Imagen 3](img/F3.jpeg)
+
+![Imagen 4](img/F4.jpeg)
+
+![Imagen 5](img/F5.jpeg)
+
+![Imagen 6](img/F9.jpeg)
+
+![Imagen 7](img/F11.jpeg)
+
+![Imagen 8](img/F12.jpeg)
+
+![Imagen 9](img/F13.jpeg)
