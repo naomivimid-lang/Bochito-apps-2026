@@ -94,11 +94,11 @@ El proyecto no requiere una instalación adicional de programas para visualizar 
 
 ![Imagen 3](img/F3.jpeg)
 
-![Imagen 4](img/F4.jpeg)
+![Imagen 4](img/F4.png)
 
-![Imagen 5](img/F5.jpeg)
+![Imagen 5](img/F5.png)
 
-![Imagen 6](img/F9.jpeg)
+![Imagen 6](img/F9.png)
 
 ![Imagen 7](img/F11.jpeg)
 
