@@ -1,0 +1,72 @@
+/* Importación de Fuentes de Guía de Estilo */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;700&family=Roboto+Mono:wght@400;600&family=Roboto+Serif:ital,wght@0,400;0,600;1,400&family=Roboto+Slab:wght@400;600;700&display=swap");
+
+:root {
+  --primary-color: #2562eb;
+  --secondary-color: #10b981;
+  --dark-color: #1c2331;
+  --light-bg: #f8fafc;
+  --support-dark: #074039;
+  --support-teal: #187171;
+  --support-light-teal: #3da1a1;
+}
+
+body {
+  font-family: "Roboto Flex", sans-serif;
+  background-color: var(--light-bg);
+  color: #1e293b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+}
+
+.lead,
+.subtitle,
+.accordion-button {
+  font-family: "Roboto Mono", monospace;
+}
+
+.btn {
+  font-family: "Roboto Serif", serif;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.bg-custom-dark {
+  background-color: var(--dark-color) !important;
+}
+
+.btn-primary,
+.bg-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-secondary-custom {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
+
+.btn-secondary-custom:hover {
+  background-color: #0d9668;
+  color: white;
+}
+
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
