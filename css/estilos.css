@@ -2,19 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;700&family=Roboto+Mono:wght@400;600&family=Roboto+Serif:ital,wght@0,400;0,600;1,400&family=Roboto+Slab:wght@400;600;700&display=swap");
 
 :root {
-  --primary-color: #2562eb;
-  --secondary-color: #10b981;
-  --dark-color: #1c2331;
-  --light-bg: #f8fafc;
+  --primary-color: #30483f;
+  --secondary-color: #5b8c72;
+  --dark-color: #30483f;
+  --light-bg: #f5f1e8;
   --support-dark: #074039;
   --support-teal: #187171;
   --support-light-teal: #3da1a1;
+
+  /* Paleta de inicio y nosotros */
+  --crema: #f5f1e8;
+  --beige: #e7e1d2;
+  --verde-claro: #b9d2bd;
+  --dorado: #d8a34d;
+  --dorado-claro: #e4b96a;
 }
 
 body {
   font-family: "Roboto Flex", sans-serif;
   background-color: var(--light-bg);
-  color: #1e293b;
+  color: #30483f;
 }
 
 h1,
@@ -58,7 +65,7 @@ h6,
 }
 
 .btn-secondary-custom:hover {
-  background-color: #0d9668;
+  background-color: #30483f;
   color: white;
 }
 
@@ -69,4 +76,113 @@ h6,
 
 .card:hover {
   transform: translateY(-4px);
+}
+
+/* ==========================================================
+   Paleta de inicio y nosotros aplicada a servicios,
+   productos y contacto
+   ========================================================== */
+:root {
+  --bs-primary: #30483f;
+  --bs-primary-rgb: 48, 72, 63;
+  --bs-link-color: #30483f;
+  --bs-link-hover-color: #5b8c72;
+}
+
+/* Encabezados de página y carrusel: verde de apoyo */
+.bg-primary {
+  background-color: var(--secondary-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary-custom {
+  background-color: var(--dorado);
+  color: var(--primary-color);
+}
+
+.btn-secondary-custom:hover {
+  background-color: var(--dorado-claro);
+  color: var(--primary-color);
+}
+
+/* Navbar */
+.navbar-dark .navbar-brand small {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--dorado);
+}
+
+/* Tarjetas, tablas y formularios */
+.card {
+  background-color: #fff;
+}
+
+.table-light {
+  --bs-table-bg: var(--beige);
+  --bs-table-color: var(--primary-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(91, 140, 114, 0.25);
+}
+
+.text-muted {
+  color: #666 !important;
+}
+
+/* Preguntas frecuentes */
+.accordion {
+  --bs-accordion-active-bg: var(--beige);
+  --bs-accordion-active-color: var(--primary-color);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(91, 140, 114, 0.25);
 }
