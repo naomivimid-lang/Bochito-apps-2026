@@ -1,31 +1,13 @@
 const USAR_SIMULACION = true;
 const API_URL = "http://localhost:3000";
 
-// Estados válidos definidos por el sistema
-const ESTADOS = [
-  "Orden recibida",
-  "En fabricación",
-  "Control de calidad",
-  "Empaquetado",
-  "En tránsito",
-];
+// RF03: actualizar estatus. Solo personal con sesión; los datos son los mismos
+// que usa pedidos.html (js/datos.js).
+const sesion = Bochito.requerirSesion();
+if (sesion) Bochito.activarBarraSesion(sesion);
 
-const COLOR_ESTATUS = {
-  "Orden recibida": "secondary",
-  "En fabricación": "warning",
-  "Control de calidad": "info",
-  Empaquetado: "primary",
-  "En tránsito": "success",
-};
-
-// Pedidos de ejemplo (solo para el prototipo)
-let pedidos = [
-  { id: 1, cliente: "Frutería Don Chuy", producto: "Huacales de madera", cantidad: 120, entrega: "2026-10-10", estatus: "Orden recibida" },
-  { id: 2, cliente: "Artesanías Raíces", producto: "Cajas de embalaje", cantidad: 60, entrega: "2026-10-12", estatus: "En fabricación" },
-  { id: 3, cliente: "Abarrotes La Esperanza", producto: "Bolsas de papel kraft", cantidad: 2000, entrega: "2026-10-09", estatus: "Control de calidad" },
-  { id: 4, cliente: "Verduras Hernández", producto: "Rejas plásticas", cantidad: 80, entrega: "2026-10-08", estatus: "Empaquetado" },
-  { id: 5, cliente: "Cooperativa Sierra Verde", producto: "Etiquetas adhesivas", cantidad: 5000, entrega: "2026-10-14", estatus: "En tránsito" },
-];
+const ESTADOS = Bochito.ESTADOS;
+let pedidos = Bochito.getPedidos();
 
 const tabla = document.getElementById("tablaPedidos");
 const sinPedidos = document.getElementById("sinPedidos");
@@ -63,6 +45,7 @@ async function actualizarEstatusAPI(id, estatus) {
     return { status: 404, body: { exito: false, error: "PEDIDO_NO_ENCONTRADO", mensaje: "El pedido no existe." } };
   }
   pedido.estatus = estatus;
+  Bochito.savePedidos(pedidos);
   return { status: 200, body: { exito: true, mensaje: "Estatus actualizado correctamente.", pedido: { ...pedido } } };
 }
 
@@ -72,23 +55,33 @@ function mostrarMensaje(texto, tipo) {
 }
 
 function dibujarTabla() {
-  const lista = pedidos.filter((p) => !filtro.value || p.estatus === filtro.value);
+  const po = document.getElementById("filtroPo").value.trim().toLowerCase();
+  const desde = document.getElementById("filtroDesde").value;
+  const hastaEl = document.getElementById("filtroHasta");
+  const hasta = hastaEl.value;
+  const fechasMal = Boolean(desde && hasta && desde > hasta);
+  hastaEl.classList.toggle("is-invalid", fechasMal);
+  if (fechasMal) return;
+
+  const lista = pedidos.filter((p) => {
+    const dia = p.entrega.slice(0, 10); // yyyy-MM-dd, comparable como texto
+    return (!po || p.po.toLowerCase().includes(po)) &&
+           (!filtro.value || p.estatus === filtro.value) &&
+           (!desde || dia >= desde) &&
+           (!hasta || dia <= hasta);
+  });
   tabla.innerHTML = "";
   lista.forEach((p) => {
     const fila = document.createElement("tr");
-    fila.innerHTML = `
-      <td>#${p.id}</td>
-      <td></td>
-      <td></td>
-      <td>${p.cantidad}</td>
-      <td>${p.entrega}</td>
-      <td><span class="badge text-bg-${COLOR_ESTATUS[p.estatus]}">${p.estatus}</span></td>
-      <td class="text-end">
-        <button class="btn btn-outline-primary btn-sm" data-id="${p.id}">Actualizar estatus</button>
-      </td>`;
-    // textContent evita insertar HTML de los datos
-    fila.children[1].textContent = p.cliente;
-    fila.children[2].textContent = p.producto;
+    fila.append(
+      Bochito.celda(p.po), Bochito.celda(p.cliente), Bochito.celda(p.producto),
+      Bochito.celda(p.cantidad), Bochito.celda(Bochito.formatoFecha(p.entrega)),
+      Bochito.celdaEstatus(p.estatus)
+    );
+    const acciones = document.createElement("td");
+    acciones.className = "text-end";
+    acciones.innerHTML = `<button class="btn btn-outline-primary btn-sm" data-id="${p.id}">Actualizar estatus</button>`;
+    fila.appendChild(acciones);
     tabla.appendChild(fila);
   });
   sinPedidos.classList.toggle("d-none", lista.length > 0);
@@ -105,7 +98,7 @@ tabla.addEventListener("click", (e) => {
   const btn = e.target.closest("button[data-id]");
   if (!btn) return;
   pedidoActual = pedidos.find((p) => p.id === Number(btn.dataset.id));
-  modalPedido.textContent = `Pedido #${pedidoActual.id} · ${pedidoActual.producto} (actual: ${pedidoActual.estatus})`;
+  modalPedido.textContent = `${pedidoActual.po} · ${pedidoActual.producto} (actual: ${pedidoActual.estatus})`;
   selectNuevo.value = pedidoActual.estatus;
   modalError.classList.add("d-none");
   modal.show();
@@ -133,7 +126,7 @@ formEstatus.addEventListener("submit", async (e) => {
   }
 });
 
-filtro.addEventListener("change", dibujarTabla);
+document.getElementById("filtros").addEventListener("input", dibujarTabla);
 
 llenarSelects();
-dibujarTabla();
+if (sesion) dibujarTabla();

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedidos - Bochito Envíos y Ventas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Iconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Hoja de estilos del proyecto -->
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand text-white d-flex align-items-center gap-2" href="inicio.html">
+          <img src="img/logo.png" alt="Logo Bochito Envíos y Ventas" width="60" height="60" class="rounded-circle d-inline-block align-text-top" />
+          <div class="d-flex flex-column lh-sm">
+            <span><i class="fa-solid fa-leaf"></i> Bochito</span>
+            <small>Comercio local</small>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="inicio.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nosotros.html"><i class="fa-solid fa-users"></i> Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="servicios.html"><i class="fa-solid fa-store"></i> Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="productos.html"><i class="fa-solid fa-box"></i> Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="pedidos.html"><i class="fa-solid fa-clipboard-list"></i> Pedidos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="busquedas.html"><i class="fa-solid fa-magnifying-glass"></i> Búsquedas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-sm btn-secondary-custom" href="iniciosesion.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5">
+      <div class="container py-3">
+        <h1 class="display-5 fw-bold">Pedidos</h1>
+        <p class="lead">Registra nuevos pedidos y reporta incidencias del proceso.</p>
+      </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="d-flex justify-content-end align-items-center gap-3 mb-3">
+          <span class="text-muted small"><i class="fa-solid fa-user"></i> <span id="usuarioActual"></span></span>
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="btnSalir"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </div>
+      <div id="mensaje" class="alert d-none" role="alert"></div>
+
+      <!-- RF02: Registro de pedidos -->
+      <div class="card shadow-sm border-0 p-4 mb-5">
+        <h2 class="h4 mb-4">Registrar nuevo pedido</h2>
+        <form id="formPedido" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="cliente" class="form-label fw-bold">Nombre del cliente <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="cliente" minlength="3" required />
+              <div class="invalid-feedback">Escribe el nombre del cliente (mínimo 3 caracteres).</div>
+            </div>
+            <div class="col-md-6">
+              <label for="producto" class="form-label fw-bold">Producto <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="producto" required />
+              <div class="invalid-feedback">Escribe el producto.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="cantidad" class="form-label fw-bold">Cantidad <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="cantidad" min="1" step="1" required />
+              <div class="invalid-feedback">La cantidad debe ser un número entero mayor a 0.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="entrega" class="form-label fw-bold">Fecha y hora estimada de entrega <span class="text-danger">*</span></label>
+              <input type="datetime-local" class="form-control" id="entrega" required />
+              <div class="invalid-feedback">Elige una fecha y hora futuras.</div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between pt-4">
+            <button type="reset" class="btn btn-outline-secondary px-4">Limpiar</button>
+            <button type="submit" class="btn btn-primary px-4">Registrar pedido</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de pedidos -->
+      <h2 class="h4 mb-3">Pedidos registrados</h2>
+      <div class="card shadow-sm border-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr><th>PO</th><th>Cliente</th><th>Producto</th><th>Cantidad</th><th>Entrega estimada</th><th>Estatus</th><th></th></tr>
+            </thead>
+            <tbody id="tablaPedidos"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RF05: Registro de incidencias -->
+      <div class="modal fade" id="modalIncidencia" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="formIncidencia" novalidate>
+              <div class="modal-header">
+                <h5 class="modal-title"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Registrar incidencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <p class="text-muted" id="incidenciaPedido"></p>
+                <div class="mb-3">
+                  <label for="tipoIncidencia" class="form-label fw-bold">Tipo <span class="text-danger">*</span></label>
+                  <select id="tipoIncidencia" class="form-select" required>
+                    <option value="">Selecciona un tipo</option>
+                    <option>Retraso</option>
+                    <option>Falla de maquinaria</option>
+                    <option>Falta de materia prima</option>
+                  </select>
+                  <div class="invalid-feedback">Selecciona el tipo de incidencia.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="causaIncidencia" class="form-label fw-bold">Causa <span class="text-danger">*</span></label>
+                  <textarea id="causaIncidencia" class="form-control" rows="3" minlength="5" required></textarea>
+                  <div class="invalid-feedback">Describe la causa (mínimo 5 caracteres).</div>
+                </div>
+                <div>
+                  <label for="nuevaFecha" class="form-label fw-bold">Nueva fecha estimada <span class="text-danger">*</span></label>
+                  <input type="datetime-local" id="nuevaFecha" class="form-control" required />
+                  <div class="invalid-feedback">Elige la nueva fecha estimada.</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar incidencia</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-custom-dark text-white text-center py-3 mt-auto">
+      <div class="container">
+        <p class="mb-0 small">&copy; 2026 Bochito - Envíos y Ventas. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/pedidos.js"></script>
+  </body>
+</html>
