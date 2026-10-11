@@ -186,3 +186,383 @@ h6,
   --bs-accordion-active-color: var(--primary-color);
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(91, 140, 114, 0.25);
 }
+/* Estructura general de las páginas RNF */
+.encabezado,
+.pie {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.encabezado {
+  padding: 18px 0;
+}
+
+.pie {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.marca {
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.marca:hover {
+  color: var(--dorado);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: var(--dorado);
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Títulos y textos de los requerimientos */
+.subtitulo {
+  color: var(--secondary-color);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contenido-rnf {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.contenido-rnf h1 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.contenido-rnf h2,
+.contenido-rnf h3 {
+  color: var(--primary-color);
+}
+
+.descripcion {
+  color: #52645a;
+  line-height: 1.7;
+}
+
+/* Tarjetas informativas */
+.tarjeta {
+  height: 100%;
+  padding: 24px;
+  border: 1px solid var(--beige);
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 14px rgba(48, 72, 63, 0.08);
+  transition: transform 0.2s ease-in-out,
+              box-shadow 0.2s ease-in-out;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(48, 72, 63, 0.12);
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+  margin-bottom: 15px;
+}
+
+/* Indicadores numéricos, como el 99.9 % de disponibilidad */
+.porcentaje {
+  color: var(--secondary-color);
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.dato {
+  display: block;
+  margin-top: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Avisos y mensajes */
+.aviso {
+  margin-top: 15px;
+  padding: 15px;
+  border-left: 5px solid var(--dorado);
+  border-radius: 6px;
+  background-color: var(--crema);
+  color: var(--primary-color);
+}
+
+.estado {
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: var(--beige);
+  color: var(--primary-color);
+  overflow-wrap: anywhere;
+}
+
+.estado-exito {
+  border-left: 5px solid var(--secondary-color);
+  background-color: #e6f2e8;
+}
+
+.estado-error {
+  border-left: 5px solid #b94a48;
+  background-color: #f9e8e5;
+}
+
+.estado-advertencia {
+  border-left: 5px solid var(--dorado);
+  background-color: #fbf1d9;
+}
+
+/* Formularios y campos */
+.contenido-rnf label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.contenido-rnf input:not([type="checkbox"]):not([type="radio"]),
+.contenido-rnf textarea,
+.contenido-rnf select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c7d3ca;
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+.contenido-rnf input:focus,
+.contenido-rnf textarea:focus,
+.contenido-rnf select:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(91, 140, 114, 0.2);
+}
+
+/* Botones de las páginas RNF */
+.contenido-rnf .btn {
+  margin-top: 8px;
+}
+
+.contenido-rnf .btn-primary {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.contenido-rnf .btn-primary:hover {
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+}
+
+.contenido-rnf .btn-secondary-custom {
+  border: none;
+  background-color: var(--dorado);
+  color: var(--primary-color);
+}
+
+.contenido-rnf .btn-secondary-custom:hover {
+  background-color: var(--dorado-claro);
+  color: var(--primary-color);
+}
+
+.contenido-rnf button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* ==========================================================
+   RNF03: ALTA DISPONIBILIDAD
+   ========================================================== */
+
+.dato-disponibilidad {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--beige);
+  border-radius: 10px;
+  background-color: var(--crema);
+}
+
+.dato-disponibilidad .porcentaje {
+  color: var(--secondary-color);
+}
+
+.tiempo-interrupcion {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--verde-claro);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ==========================================================
+   RNF04: COMUNICACIONES CONFIABLES
+   ========================================================== */
+
+.lista-solicitudes {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.lista-solicitudes li {
+  margin-bottom: 10px;
+  padding: 14px;
+  border: 1px solid var(--beige);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 8px;
+  background-color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.solicitud-pendiente {
+  border-left-color: var(--dorado) !important;
+}
+
+.solicitud-completada {
+  border-left-color: var(--secondary-color) !important;
+}
+
+.solicitud-error {
+  border-left-color: #b94a48 !important;
+}
+
+/* ==========================================================
+   RNF05: SEGURIDAD DE DATOS
+   ========================================================== */
+
+.tarjeta-seguridad {
+  border-top: 4px solid var(--secondary-color);
+}
+
+.tecnologia {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: var(--verde-claro);
+  color: var(--primary-color);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.lista-verificacion {
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: var(--crema);
+}
+
+.lista-verificacion .form-check {
+  margin-bottom: 12px;
+}
+
+.lista-verificacion .form-check:last-child {
+  margin-bottom: 0;
+}
+
+.lista-verificacion .form-check-input:checked {
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+}
+
+/* ==========================================================
+   RNF06: SEGURIDAD DE CONTRASEÑAS
+   ========================================================== */
+
+.campo-contrasena {
+  margin-bottom: 20px;
+}
+
+.reglas-contrasena {
+  margin: 18px 0;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: var(--crema);
+}
+
+.reglas-contrasena ul {
+  margin-bottom: 0;
+  padding-left: 22px;
+}
+
+.reglas-contrasena li {
+  margin-bottom: 8px;
+  color: #6b6257;
+}
+
+.reglas-contrasena li:last-child {
+  margin-bottom: 0;
+}
+
+.regla-cumplida {
+  color: var(--secondary-color) !important;
+  font-weight: 700;
+}
+
+.regla-cumplida::marker {
+  color: var(--secondary-color);
+}
+
+.contador-intentos {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--beige);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.estado-bloqueo {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid var(--dorado);
+  border-radius: 8px;
+  background-color: #fbf1d9;
+  color: var(--primary-color);
+}
+
+/* Accesibilidad: indicadores visibles al navegar con teclado */
+.contenido-rnf a:focus-visible,
+.contenido-rnf button:focus-visible,
+.contenido-rnf input:focus-visible,
+.contenido-rnf select:focus-visible,
+.contenido-rnf textarea:focus-visible {
+  outline: 3px solid var(--dorado);
+  outline-offset: 3px;
+}
+
+/* Adaptación a celulares y pantallas pequeñas */
+@media (max-width: 576px) {
+  .contenido-rnf {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .tarjeta {
+    padding: 18px;
+  }
+
+  .porcentaje {
+    font-size: 2.2rem;
+  }
+
+  .marca {
+    font-size: 1.25rem;
+  }
+}
